@@ -1,8 +1,35 @@
+//! File utility functions for working with the filesystem.
+//! 
+//! This module provides utilities for finding files that match
+//! glob patterns.
+
 use std::path::PathBuf;
 use glob::{glob, PatternError};
 
 
-/// Return a vector of paths that matched the provided **glob** pattern.
+/// Returns a vector of paths that match the provided glob pattern.
+/// 
+/// This function searches the filesystem for paths that match the given pattern
+/// and returns them as a vector of `PathBuf` objects.
+/// 
+/// # Arguments
+/// 
+/// * `pattern` - A glob pattern string to match against file paths
+/// 
+/// # Returns
+/// 
+/// * `Result<Vec<PathBuf>, PatternError>` - A vector of matched paths or a pattern error
+/// 
+/// # Examples
+/// 
+/// ```
+/// let md_files = match_files(&"**/*.md".to_string());
+/// if let Ok(files) = md_files {
+///     for file in files {
+///         println!("Found markdown file: {:?}", file);
+///     }
+/// }
+/// ```
 pub fn match_files(pattern: &String) -> Result<Vec<PathBuf>, PatternError> {
   let paths = glob(pattern)?;
 
