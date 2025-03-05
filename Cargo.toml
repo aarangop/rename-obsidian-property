@@ -1,0 +1,17 @@
+[package]
+name = "rename-obsidian-property"
+version = "0.1.0"
+edition = "2024"
+description = "A CLI utility for renaming properties in Obsidian notes"
+authors = ["Andres Arango Perez <andresap@proton.me>"]
+license = "MIT" # Choose appropriate license
+repository = "https://github.com/aarangop/obsidian-property-renamer" # Optional
+readme = "README.md" # Optional, but recommended
+
+[dependencies]
+clap = { version = "4.5.31", features = ["derive"] }
+glob = "0.3.2"
+regex = "1.11.1"
+
+[dev-dependencies]
+tempfile = "3.3"
